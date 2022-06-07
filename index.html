@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboardooo</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/whiteboard.png" type="image/x-icon">  
+</head>
+<body>
+    <div class="tools">
+        <button class="colors" onclick="colorPanel()"><img src="assets/color-wheel.png" alt="colors" width="42px"></button>
+        <button class="size" id="size" onclick="sizePanel()"><img src="assets/writing.png" alt="size" width="42px"></button>
+        <button class="eraser" id="eraser" onclick="eraserPanel()"><img src="assets/eraser.png" alt="eraser" width="42px"></button>    
+        <button class="clear" id="delete" onclick="clear()"><img src="assets/delete.png" alt="clear" width="42px"></button>
+    </div>
+    <div id="colors">
+        <button class="red circle" onclick="changeColor('red')"></button>
+        <button class="black circle" onclick="changeColor('black')"></button>
+        <button class="blue circle" onclick="changeColor('blue')"></button>
+        <button class="green circle" onclick="changeColor('green')"></button>
+    </div>
+    <div id="stroks">
+        <button class="s5 circle" onclick="changeSize(5)"></button>
+        <button class="s10 circle" onclick="changeSize(10)"></button>
+        <button class="s15 circle" onclick="changeSize(15)"></button>
+        <button class="s25 circle" onclick="changeSize(25)"></button>
+    </div>
+    <div id="erase">
+        <button class="e20 circle" onclick="eraser(20)"></button>
+        <button class="e40 circle" onclick="eraser(40)"></button>
+        <button class="e100 circle" onclick="eraser(100)"></button>
+    </div>
+    <canvas id="canvas" onmousedown="reset()">
+    </canvas>
+    <script src="app.js"></script>
+</body>
+</html>
