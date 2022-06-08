@@ -143,19 +143,21 @@ window.addEventListener('load',()=>{
         };
     }
 
-    // Prevent scrolling when touching the canvas
+    
+
+})
+// Prevent scrolling when touching the canvas
 canvas.addEventListener("touchstart", function (e) {
 
-      e.preventDefault();
+    e.preventDefault();
 
-  }, false);
-  canvas.addEventListener("touchend", function (e) {
+}, false);
+canvas.addEventListener("touchend", function (e) {
 
-      e.preventDefault();
+    e.preventDefault();
 
-  }, false);
-  canvas.addEventListener("touchmove", function (e) {
+}, false);
+canvas.addEventListener("touchmove", function (e) {
 
-      e.preventDefault();
-  }, false);
-})
+    e.preventDefault();
+}, false);
