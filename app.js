@@ -1,69 +1,24 @@
-
-const canvas=document.querySelector('#canvas')
-const ctx=canvas.getContext('2d');
-const colors=document.querySelector('#colors')
-const stroke=document.getElementById('stroks')
-const erase=document.querySelector('#erase')
+import {saveCanvas,loadCanvas,clearCanvas} from './store.js';
+import {eraserPanel,sizePanel,colorPanel,LineSize,col} from './controles.js'
+export const canvas=document.querySelector('#canvas')
+export const ctx=canvas.getContext('2d');
 const body=document.querySelector('body');
+const panelColor=document.querySelector('#colorPanel')
+const panelSize=document.querySelector('#size');
+const panelEraser=document.querySelector('#eraser')
+
+const key="Drawing"
 body.style.cursor='cell'
-let col='black';
-let LineSize;
-
-// coloring
-function colorPanel(){
-    body.style.cursor='cell'
-    if(colors.style.display==='none')
-    colors.style.display='block'
-    else
-    colors.style.display='none'
-}
-function changeColor(color){
-    ctx.strokeStyle=color;
-    col=color
-    colors.style.display='none'
-}
-
-//sizing
-
-function sizePanel(){
-    body.style.cursor='cell'
-    ctx.strokeStyle=col;
-    if(stroke.style.display==='none')
-    stroke.style.display='block'
-    else
-    stroke.style.display='none'
-}
-function changeSize(size){
-    ctx.lineWidth=size;
-    LineSize=size;
-    stroke.style.display='none'
-}
 
 
-//erasing
-function eraser(){
-    ctx.strokeStyle='white'
-    ctx.lineWidth=LineSize;
-    erase.style.display='none'
-}
-function eraserPanel(){
-    body.style.cursor='not-allowed'
-    ctx.strokeStyle='white'
-    ctx.lineWidth=LineSize;
-    if(erase.style.display==='none')
-    erase.style.display='block'
-    else
-    erase.style.display='none'
-}
+// tools listener via controles
+
+panelColor.addEventListener('click', colorPanel);
+panelSize.addEventListener('click', sizePanel);
+panelEraser.addEventListener('click', eraserPanel);
+canvas.addEventListener('mousedown', reset);
 
 
-
-// rest on draw
-function reset(){
-    colors.style.display='none'
-    stroke.style.display='none'
-    erase.style.display='none'
-}
 // right click disabled
 window.addEventListener('contextmenu', (event) => {
     event.preventDefault()
@@ -92,9 +47,11 @@ window.addEventListener('load',()=>{
         ctx.lineCap='round'
 
         ctx.lineTo(e.clientX,e.clientY)
-        ctx.stroke();   
+        ctx.stroke();  
+        saveCanvas(); 
     }
     //event listeners 
+    loadCanvas();
     canvas.addEventListener('mousedown',startPostion)
     canvas.addEventListener('mouseup',finishedPostion)
     canvas.addEventListener('mousemove',draw)
@@ -144,7 +101,7 @@ window.addEventListener('load',()=>{
 
 // Prevent scrolling when touching the canvas
 canvas.addEventListener("touchstart", function (e) {
-
+col
     e.preventDefault();
 
 }, false);
@@ -158,8 +115,12 @@ canvas.addEventListener("touchmove", function (e) {
     e.preventDefault();
 }, false);
 
-//clearing the whole whiteboard
+//clearing the whole whiteboard and clear the local storage
 document.getElementById('delete').addEventListener('click',()=>{
     canvas.width=canvas.width;
     changeSize(LineSize)
+    changeColor(col)
+    clearCanvas(key)
 })
+
+

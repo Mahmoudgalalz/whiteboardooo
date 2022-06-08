@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="tools">
-        <button class="colors" onclick="colorPanel()"><img src="assets/color-wheel.png" alt="colors" width="42px"></button>
-        <button class="size" id="size" onclick="sizePanel()"><img src="assets/writing.png" alt="size" width="42px"></button>
-        <button class="eraser" id="eraser" onclick="eraserPanel()"><img src="assets/eraser.png" alt="eraser" width="42px"></button>    
-        <button class="clear" id="delete" onclick="clear()"><img src="assets/delete.png" alt="clear" width="42px"></button>
+        <button class="colors" id="colorPanel"><img src="assets/color-wheel.png" alt="colors" width="42px"></button>
+        <button class="size" id="size" ><img src="assets/writing.png" alt="size" width="42px"></button>
+        <button class="eraser" id="eraser" ><img src="assets/eraser.png" alt="eraser" width="42px"></button>    
+        <button class="clear" id="delete"><img src="assets/delete.png" alt="clear" width="42px"></button>
     </div>
     <div id="colors">
         <button class="red circle" onclick="changeColor('red')"></button>
@@ -30,9 +30,11 @@
         <button class="e40 circle" onclick="eraser(40)"></button>
         <button class="e100 circle" onclick="eraser(100)"></button>
     </div>
-    <canvas id="canvas" onmousedown="reset()">
+    <canvas id="canvas" >
     </canvas>
-    <script src="app.js"></script>
+    <script src="changes.js"></script>
+    <script src="app.js" type="module"></script>
     <script src="work.js"></script>
+    
 </body>
 </html>
