@@ -12,7 +12,6 @@ body.style.cursor='cell'
 
 
 // tools listener via controles
-
 panelColor.addEventListener('click', colorPanel);
 panelSize.addEventListener('click', sizePanel);
 panelEraser.addEventListener('click', eraserPanel);
@@ -60,7 +59,7 @@ window.addEventListener('load',()=>{
     // touchable devices listener
     // Set up touch events for mobile, etc
     canvas.addEventListener("touchstart", function (e) {
-    mousePos = getTouchPos(canvas, e);
+    let mousePos = getTouchPos(canvas, e);
     let touch = e.touches[0];
     let mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
@@ -101,7 +100,6 @@ window.addEventListener('load',()=>{
 
 // Prevent scrolling when touching the canvas
 canvas.addEventListener("touchstart", function (e) {
-col
     e.preventDefault();
 
 }, false);
