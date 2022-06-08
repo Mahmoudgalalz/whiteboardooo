@@ -2,7 +2,7 @@
 const canvas=document.querySelector('#canvas')
 const ctx=canvas.getContext('2d');
 const colors=document.querySelector('#colors')
-const stroke=document.querySelector('#stroks')
+const stroke=document.getElementById('stroks')
 const erase=document.querySelector('#erase')
 const body=document.querySelector('body');
 body.style.cursor='cell'
@@ -12,7 +12,6 @@ let col='black';
 // coloring
 function colorPanel(){
     body.style.cursor='cell'
-    ctx.lineWidth=10;
     if(colors.style.display==='none')
     colors.style.display='block'
     else
@@ -28,7 +27,6 @@ function changeColor(color){
 
 function sizePanel(){
     body.style.cursor='cell'
-    ctx.lineWidth=10;
     ctx.strokeStyle=col;
     if(stroke.style.display==='none')
     stroke.style.display='block'
@@ -73,14 +71,12 @@ window.addEventListener('contextmenu', (event) => {
     event.preventDefault()
   })
 
-
-
 // draw
 window.addEventListener('load',()=>{
     //auto resizing 
     canvas.height=window.innerHeight-2;
     canvas.width=window.innerWidth-2;
-    
+    ctx.lineWidth=5;
     //variables 
     let painting =false;
 
@@ -146,6 +142,8 @@ window.addEventListener('load',()=>{
     
 
 })
+
+
 // Prevent scrolling when touching the canvas
 canvas.addEventListener("touchstart", function (e) {
 
