@@ -143,13 +143,20 @@ window.addEventListener('load',()=>{
         };
     }
 
-    canvas.addEventListener('touchstart',startPostion,(event)=>{
-        event.preventDefault();
-    })
-    canvas.addEventListener('touchend',finishedPostion,(event)=>{
-        event.preventDefault();
-    })
-    canvas.addEventListener('touchmove',draw,(event)=>{
-        event.preventDefault();
-    })
+    // Prevent scrolling when touching the canvas
+document.body.addEventListener("touchstart", function (e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
+  document.body.addEventListener("touchend", function (e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
+  document.body.addEventListener("touchmove", function (e) {
+    if (e.target == canvas) {
+      e.preventDefault();
+    }
+  }, false);
 })
