@@ -144,19 +144,18 @@ window.addEventListener('load',()=>{
     }
 
     // Prevent scrolling when touching the canvas
-document.body.addEventListener("touchstart", function (e) {
-    if (e.target == canvas) {
+canvas.addEventListener("touchstart", function (e) {
+
       e.preventDefault();
-    }
+
   }, false);
-  document.body.addEventListener("touchend", function (e) {
-    if (e.target == canvas) {
+  canvas.addEventListener("touchend", function (e) {
+
       e.preventDefault();
-    }
+
   }, false);
-  document.body.addEventListener("touchmove", function (e) {
-    if (e.target == canvas) {
+  canvas.addEventListener("touchmove", function (e) {
+
       e.preventDefault();
-    }
   }, false);
 })
