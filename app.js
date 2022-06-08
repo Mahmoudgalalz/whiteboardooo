@@ -7,7 +7,7 @@ const erase=document.querySelector('#erase')
 const body=document.querySelector('body');
 body.style.cursor='cell'
 let col='black';
-
+let LineSize;
 
 // coloring
 function colorPanel(){
@@ -35,30 +35,28 @@ function sizePanel(){
 }
 function changeSize(size){
     ctx.lineWidth=size;
+    LineSize=size;
     stroke.style.display='none'
 }
 
 
 //erasing
-function eraser(size){
+function eraser(){
     ctx.strokeStyle='white'
-    ctx.lineWidth=size;
+    ctx.lineWidth=LineSize;
     erase.style.display='none'
 }
 function eraserPanel(){
     body.style.cursor='not-allowed'
     ctx.strokeStyle='white'
+    ctx.lineWidth=LineSize;
     if(erase.style.display==='none')
     erase.style.display='block'
     else
     erase.style.display='none'
 }
 
-//clearing the whole whiteboard
-document.getElementById('delete').addEventListener('click',()=>{
-    
-    canvas.width=canvas.width;
-})
+
 
 // rest on draw
 function reset(){
@@ -76,7 +74,7 @@ window.addEventListener('load',()=>{
     //auto resizing 
     canvas.height=window.innerHeight-2;
     canvas.width=window.innerWidth-2;
-    ctx.lineWidth=5;
+    ctx.lineWidth=LineSize;
     //variables 
     let painting =false;
 
@@ -159,3 +157,9 @@ canvas.addEventListener("touchmove", function (e) {
 
     e.preventDefault();
 }, false);
+
+//clearing the whole whiteboard
+document.getElementById('delete').addEventListener('click',()=>{
+    canvas.width=canvas.width;
+    changeSize(LineSize)
+})
