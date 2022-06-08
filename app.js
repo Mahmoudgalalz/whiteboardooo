@@ -103,4 +103,9 @@ window.addEventListener('load',()=>{
     canvas.addEventListener('mousedown',startPostion)
     canvas.addEventListener('mouseup',finishedPostion)
     canvas.addEventListener('mousemove',draw)
+
+    // touchable devices listener
+    canvas.addEventListener('touchstart',startPostion)
+    canvas.addEventListener('touchend',finishedPostion)
+    canvas.addEventListener('touchmove',draw)
 })
