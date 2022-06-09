@@ -2,7 +2,7 @@ const colors=document.querySelector('#colors')
 const stroke=document.getElementById('stroks')
 const ctx=canvas.getContext('2d');
 const erase=document.querySelector('#erase')
-
+const settings=document.querySelector('#settingBar')
 let lastColor;
 
 function changeColor(color){
@@ -33,3 +33,4 @@ function markerPen(){
     ctx.lineWidth=20
     ctx.strokeStyle='rgba(254, 255, 116, 0.09)'
 }
+

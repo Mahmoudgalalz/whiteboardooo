@@ -7,7 +7,12 @@ export let col;
 export let LineSize;
 
 
-
+function SettingBar(){
+    if(settings.style.display==='none')
+    settings.style.display='block'
+    else
+    settings.style.display='none'
+}
 function colorPanel(){
     body.style.cursor='cell'
     stroke.style.display='none'
@@ -58,4 +63,4 @@ function eraserPanel(){
 
 
 
-export{eraserPanel,sizePanel,colorPanel}
+export{eraserPanel,sizePanel,colorPanel,SettingBar}

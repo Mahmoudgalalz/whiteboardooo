@@ -1,23 +1,22 @@
 import {saveCanvas,loadCanvas,clearCanvas} from './store.js';
-import {eraserPanel,sizePanel,colorPanel,LineSize,col} from './controles.js'
+import {eraserPanel,sizePanel,colorPanel,col,SettingBar} from './controles.js'
 export const canvas=document.querySelector('#canvas')
 export const ctx=canvas.getContext('2d');
 const body=document.querySelector('body');
 const panelColor=document.querySelector('#colorPanel')
 const panelSize=document.querySelector('#size');
 const panelEraser=document.querySelector('#eraser')
-
+const settingBar=document.querySelector('#settings')
 const key="Drawing"
 body.style.cursor='cell'
 
 
-
 // tools listener via controles
+settingBar.addEventListener('click',SettingBar)
 panelColor.addEventListener('click', colorPanel);
 panelSize.addEventListener('click', sizePanel);
 panelEraser.addEventListener('click', eraserPanel);
 canvas.addEventListener('mousedown', reset);
-
 
 // right click disabled
 window.addEventListener('contextmenu', (event) => {
@@ -44,7 +43,6 @@ window.addEventListener('load',()=>{
     function draw(e){
         if(!painting)return;
         ctx.lineCap='round'
-
         ctx.lineTo(e.clientX,e.clientY)
         ctx.stroke();  
         saveCanvas(); 
@@ -116,7 +114,7 @@ canvas.addEventListener("touchmove", function (e) {
 //clearing the whole whiteboard and clear the local storage
 document.getElementById('delete').addEventListener('click',()=>{
     canvas.width=canvas.width;
-    changeSize(LineSize)
+    changeSize(5)
     changeColor(col)
     clearCanvas(key)
 })
