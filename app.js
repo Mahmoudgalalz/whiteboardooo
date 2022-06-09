@@ -11,6 +11,7 @@ const key="Drawing"
 body.style.cursor='cell'
 
 
+
 // tools listener via controles
 panelColor.addEventListener('click', colorPanel);
 panelSize.addEventListener('click', sizePanel);
@@ -28,7 +29,6 @@ window.addEventListener('load',()=>{
     //auto resizing 
     canvas.height=window.innerHeight-2;
     canvas.width=window.innerWidth-2;
-    ctx.lineWidth=LineSize;
     //variables 
     let painting =false;
 

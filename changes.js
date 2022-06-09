@@ -3,15 +3,17 @@ const stroke=document.getElementById('stroks')
 const ctx=canvas.getContext('2d');
 const erase=document.querySelector('#erase')
 
+let lastColor;
+
 function changeColor(color){
     ctx.strokeStyle=color;
-    col=color
+    lastColor=color
     colors.style.display='none'
 }
 
-function eraser(){
+function eraser(size){
     ctx.strokeStyle='white'
-    ctx.lineWidth=LineSize;
+    ctx.lineWidth=size;
     erase.style.display='none'
 }
 function reset(){
@@ -20,7 +22,14 @@ function reset(){
     erase.style.display='none'
 }
 function changeSize(size){
+
     ctx.lineWidth=size;
     LineSize=size;
+    ctx.strokeStyle=lastColor
     stroke.style.display='none'
+}
+
+function markerPen(){
+    ctx.lineWidth=20
+    ctx.strokeStyle='rgba(254, 255, 116, 0.09)'
 }
